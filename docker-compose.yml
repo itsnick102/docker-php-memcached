@@ -1,0 +1,16 @@
+services:
+  docker-memcached:
+    build:
+      context: ./memcached
+    container_name: memcached
+    ports:
+      - "11211:11211"
+    restart: "no"
+    command: memcached -u itsdev-memcache -vv
+    networks:
+      custom_network:
+        ipv4_address: 192.168.100.11  # Static IP for Memcached
+
+networks:
+  custom_network:
+    external: true
