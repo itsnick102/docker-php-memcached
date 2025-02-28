@@ -3,6 +3,8 @@ services:
     build:
       context: ./memcached
     container_name: memcached
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
     ports:
       - "11211:11211"
     restart: "no"
